@@ -1,0 +1,31 @@
+/////////////////////////////////////////////////////////////
+// Dialogue inside Chateau Irenicus about the poster(s)    //
+// Kept separate so it can be imported into Transitions    //
+// This is the only bit that might be used for Transitions //
+/////////////////////////////////////////////////////////////
+
+@3000	= ~What is that?  Skie Silvershield is dead?~
+@3001	= ~I guess so.  And for some reason I am wanted for it.~
+@3002	= ~Don't tell me you've been framed again!~
+@3003	= ~It would appear so.  This is becoming an annoyingly regular occurance.~
+@3004	= ~I am sorry to hear about Skie though.~
+@3005	= ~Yeah, me too.~
+@3006	= ~What is that?  Duke Entar put a price on your head?~
+@3007	= ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~
+@3008	= ~A rather high price, actually. This is becoming an annoyingly regular occurance.~
+@3009	= ~At least this time you know who wants you dead, and why.~
+@3010	= ~Oddly enough, that doesn't feel like much of an improvement.~
+@3011	= ~Duke Entar must be about out of his mind, losing both of his children.~
+@3012	= ~Yeah, I'd feel a lot sorrier for him if he hadn't put a 10,000 gold reward on my head.~
+@3013	= ~What's this about a soul dagger?~
+@3014	= ~Your guess is as good as mine.~
+@3015	= ~I wonder why they think you did it.~
+@3016	= ~I don't know.  Dopplegangers maybe?~
+@3017	= ~Hmm, could be.  But let's worry about this once we're out of here.~
+@3018	= ~I see they still haven't found that soul dagger.~
+@3019	= ~What does he think?  The dagger sprouted legs and walked out on it's own?  It wasn't to be found in the entire area.~
+@3020	= ~What do they think?  The dagger sprouted legs and walked out on it's own?  It wasn't to be found in the entire area.~
+@3021	= ~Who can say what goes on inside his head.  But let's worry about this once we're out of here.~
+@3022	= ~Who can say what they think.  But let's worry about this once we're out of here.~
+@3023	= ~Right!  First things first.~
+@3024	= ~Boo wonders why they think you did it.~

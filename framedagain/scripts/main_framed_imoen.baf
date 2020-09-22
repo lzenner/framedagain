@@ -1,0 +1,37 @@
+////////////////////////////////////////////////////////////////////////////////
+// Has her start a conversation about the poster(s) found in Chateau Irenicus //
+// Compiled via main_framed.tpa                                               //
+////////////////////////////////////////////////////////////////////////////////
+
+IF
+	Global("#L_PosterTalk","GLOBAL",0)
+	IsValidForPartyDialogue(MYSELF)
+	Global("bd_player_exiled","GLOBAL",2) // Left before Skie dead via item
+	PartyHasItem("#LScr01") // Make sure they have both items before launching conversation
+	PartyHasItem("#LScr03")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("#L_PosterTimer","GLOBAL",TWO_MINUTES)
+		SetGlobal("#L_PosterTalk","GLOBAL",1)
+END
+
+IF
+	Global("#L_PosterTalk","GLOBAL",0)
+	IsValidForPartyDialogue(MYSELF)
+	!Global("bd_player_exiled","GLOBAL",2) // BG2 or went through trial
+	OR(2)
+		PartyHasItem("#LScr02") // Escaped after found guilty
+		PartyHasItem("#LScr03") // BG2 or Exiled
+THEN
+	RESPONSE #100
+		SetGlobalTimer("#L_PosterTimer","GLOBAL",TWO_MINUTES)
+		SetGlobal("#L_PosterTalk","GLOBAL",1)
+END
+
+IF
+	GlobalTimerExpired("#L_PosterTimer","GLOBAL")
+	Global("#L_PosterTalk","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartDialogueNoSet(Player1)
+END

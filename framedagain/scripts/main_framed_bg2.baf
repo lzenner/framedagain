@@ -1,0 +1,13 @@
+////////////////////////////////////////////////////////////////
+// Puts the proper wanted poster into play when BG2 is loaded //
+// Parsed via main_framed.tpa                                 //
+////////////////////////////////////////////////////////////////
+
+IF
+	Global("#L_PosterStashed","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("#L_PosterStashed","GLOBAL",1)
+		ActionOverride("JailkeepTable",CreateItem("#LScr03",1,0,0))
+		Continue()
+END

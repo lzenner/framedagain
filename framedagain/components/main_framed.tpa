@@ -1,0 +1,63 @@
+////////////////////////////////////////////////
+// Puts in items and compiles dialogue needed //
+// no matter the outcome of the trial in SoD  //
+////////////////////////////////////////////////
+
+DEFINE_ACTION_FUNCTION main_framed BEGIN
+	// Remove the poster placed by Transitions if it's installed
+	COPY_EXISTING ~AR0602.BCS~ ~override~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY CASE_INSENSITIVE EXACT_MATCH ~ActionOverride("JailkeepTable",CreateItem("#LScr01",1,0,0))~ ~~
+		END
+	BUT_ONLY_IF_IT_CHANGES
+
+	// Compile dialogue about the posters in the dungeon
+	COMPILE EVALUATE_BUFFER ~%mod_root%/dialogues/main_framed.d~ USING ~%tra_loc%/%s/main_framed.tra~
+	EXTEND_TOP ~IMOEN.BCS~ ~%mod_root%/scripts/main_framed_imoen.baf~
+	EXTEND_TOP ~JAHEIRA.BCS~ ~%mod_root%/scripts/main_framed_jaheira.baf~
+	EXTEND_TOP ~MINSC.BCS~ ~%mod_root%/scripts/main_framed_minsc.baf~
+
+	// Put the required scroll(s) into the game
+	ACTION_IF GAME_IS ~BG2EE~ BEGIN
+		// We have no idea if they even played SoD
+		// Just put in the wanted poster from Entar
+		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr03.itm~
+    		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
+    		SAY DESC  @1004 /* Wanted dead or alive by Entar */
+
+		// Add the poster to Chateau Irenicus
+		LAF INSERT_SCRIPT_BLOCK
+			INT_VAR 
+				insert_above = 1
+				only_once = 1
+			STR_VAR 
+				script = AR0602
+				match = ~Global("BG1Pantaloons","GLOBAL",0)~
+				insert = ~%mod_root%/scripts/main_framed_bg2.baf~
+		END
+	END ELSE BEGIN
+		// Will need to put in all variations of the posters/warrants
+		// Which one(s) will actually be found in the dungeon will be dependent upon 
+		// the value of bd_player_exiled at the time the PC is transferred to BG2
+		COPY ~%mod_root%/objects/#LScr01.itm~ ~override~
+    		SAY NAME2 @1000	/* ~Warrant for <CHARNAME>'s Arrest~ */
+			SAY DESC  @1001 /* Wanted alive by the dukes for questioning */
+		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr02.itm~
+    		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
+    		SAY DESC  @1003 /* Wanted dead or alive by all the dukes */
+		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr03.itm~
+    		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
+    		SAY DESC  @1004 /* Wanted dead or alive by Entar */
+
+		// Add the poster(s) to Chateau Irenicus
+		LAF INSERT_SCRIPT_BLOCK
+			INT_VAR 
+				insert_above = 1
+				only_once = 1
+			STR_VAR 
+				script = AR0602
+				match = ~Global("BG1Pantaloons","GLOBAL",0)~
+				insert = ~%mod_root%/scripts/main_framed_eet.baf~
+		END
+	END
+END
