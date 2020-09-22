@@ -5,7 +5,7 @@
 // Compiled via main_framed.tpa using main_framed.tra      //
 /////////////////////////////////////////////////////////////
 
-APPEND IMOEN2J
+APPEND %IMOEN_JOINED%
 	// Left before Skie dead via item
 	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",2) PartyHasItem("#LScr01") PartyHasItem("#LScr03")~ BEGIN SKIE_DEAD_IMOEN
 		SAY @3000 /* ~What is that?  Skie Silvershield is dead?~ */
@@ -127,7 +127,7 @@ APPEND JAHEIRAJ
 	IF ~~ BEGIN	FRAMED_AGAIN_JAHEIRA
 		SAY @3002 /* ~Don't tell me you've been framed again!~ */
 		+ ~!IsValidForPartyDialogue("IMOEN2")~ + @3003 /* ~It would appear so.  This is becoming an annoyingly regular occurance.~ */ + SORRY_SKIE_JAHEIRA
-		+ ~IsValidForPartyDialogue("IMOEN2")~ + @3003 /* ~It would appear so.  This is becoming an annoyingly regular occurance.~ */ EXTERN ~IMOEN2J~ SORRY_SKIE_IMOEN
+		+ ~IsValidForPartyDialogue("IMOEN2")~ + @3003 /* ~It would appear so.  This is becoming an annoyingly regular occurance.~ */ EXTERN ~%IMOEN_JOINED%~ SORRY_SKIE_IMOEN
 	END
 
 	// Left before Skie dead via item, Imoen not available
@@ -141,7 +141,7 @@ APPEND JAHEIRAJ
 		SAY @3011 /* ~Duke Entar must be about out of his mind, losing both of his children.~ */
 		+ ~!IsValidForPartyDialogue("IMOEN2") !IsValidForPartyDialogue("MINSC")~ + @3012 /* ~Yeah, I'd feel a lot sorrier for him if he hadn't put a 10,000 gold reward on my head.~ */ + AT_LEAST_KNOW_JAHEIRA
 		+ ~!IsValidForPartyDialogue("IMOEN2") IsValidForPartyDialogue("MINSC")~ + @3012 /* ~Yeah, I'd feel a lot sorrier for him if he hadn't put a 10,000 gold reward on my head.~ */ EXTERN ~MINSCJ~ AT_LEAST_KNOW_MINSC
-		+ ~IsValidForPartyDialogue("IMOEN2")~ + @3012 /* ~Yeah, I'd feel a lot sorrier for him if he hadn't put a 10,000 gold reward on my head.~ */ EXTERN ~IMOEN2J~ AT_LEAST_KNOW_IMOEN
+		+ ~IsValidForPartyDialogue("IMOEN2")~ + @3012 /* ~Yeah, I'd feel a lot sorrier for him if he hadn't put a 10,000 gold reward on my head.~ */ EXTERN ~%IMOEN_JOINED%~ AT_LEAST_KNOW_IMOEN
 	END
 
 	// Imoen and Minsc not available
@@ -155,7 +155,7 @@ APPEND JAHEIRAJ
 	IF ~~ BEGIN WHAT_DAGGER_JAHERIA
 		SAY @3013 /* ~What's this about a soul dagger?~ */
 		+ ~!IsValidForPartyDialogue("MINSC") !IsValidForPartyDialogue("IMOEN2")~ + @3014 /* ~Your guess is as good as mine.~ */ + WHY_YOU_JAHEIRA
-		+ ~!IsValidForPartyDialogue("MINSC") IsValidForPartyDialogue("IMOEN2")~ + @3014 /* ~Your guess is as good as mine.~ */ EXTERN ~IMOEN2J~ WHY_YOU_IMOEN
+		+ ~!IsValidForPartyDialogue("MINSC") IsValidForPartyDialogue("IMOEN2")~ + @3014 /* ~Your guess is as good as mine.~ */ EXTERN ~%IMOEN_JOINED%~ WHY_YOU_IMOEN
 		+ ~IsValidForPartyDialogue("MINSC")~ + @3014 /* ~Your guess is as good as mine.~ */ EXTERN ~MINSCJ~ WHY_YOU_MINSC
 	END
 
@@ -175,10 +175,10 @@ APPEND JAHEIRAJ
 	IF ~~ BEGIN WHERE_DAGGER_JAHERIA
 		SAY @3018 /* ~I see they still haven't found that soul dagger.~ */
 		IF ~PartyHasItem("#LScr02") !IsValidForPartyDialogue("MINSC") !IsValidForPartyDialogue("IMOEN2")~ GOTO DUKES_DAGGER_LEGS_JAHEIRA
-		IF ~PartyHasItem("#LScr02") !IsValidForPartyDialogue("MINSC") IsValidForPartyDialogue("IMOEN2")~ EXTERN ~IMOEN2J~ DUKES_DAGGER_LEGS_IMOEN
+		IF ~PartyHasItem("#LScr02") !IsValidForPartyDialogue("MINSC") IsValidForPartyDialogue("IMOEN2")~ EXTERN ~%IMOEN_JOINED%~ DUKES_DAGGER_LEGS_IMOEN
 		IF ~PartyHasItem("#LScr02") IsValidForPartyDialogue("MINSC")~ EXTERN ~MINSCJ~ DUKES_DAGGER_LEGS_MINSC
 		IF ~PartyHasItem("#LScr03") !IsValidForPartyDialogue("MINSC") !IsValidForPartyDialogue("IMOEN2")~ GOTO ENTAR_DAGGER_LEGS_JAHEIRA
-		IF ~PartyHasItem("#LScr03") !IsValidForPartyDialogue("MINSC") IsValidForPartyDialogue("IMOEN2")~ EXTERN ~IMOEN2J~ ENTAR_DAGGER_LEGS_IMOEN
+		IF ~PartyHasItem("#LScr03") !IsValidForPartyDialogue("MINSC") IsValidForPartyDialogue("IMOEN2")~ EXTERN ~%IMOEN_JOINED%~ ENTAR_DAGGER_LEGS_IMOEN
 		IF ~PartyHasItem("#LScr03") IsValidForPartyDialogue("MINSC")~ EXTERN ~MINSCJ~ ENTAR_DAGGER_LEGS_MINSC
 	END
 
@@ -224,7 +224,7 @@ APPEND MINSCJ
 	IF ~~ BEGIN	FRAMED_AGAIN_MINSC
 		SAY @3002 /* ~Don't tell me you've been framed again!~ */
 		+ ~!IsValidForPartyDialogue("IMOEN2")~ + @3003 /* ~It would appear so.  This is becoming an annoyingly regular occurance.~ */ + SORRY_SKIE_MINSC
-		+ ~IsValidForPartyDialogue("IMOEN2")~ + @3003 /* ~It would appear so.  This is becoming an annoyingly regular occurance.~ */ EXTERN ~IMOEN2J~ SORRY_SKIE_IMOEN
+		+ ~IsValidForPartyDialogue("IMOEN2")~ + @3003 /* ~It would appear so.  This is becoming an annoyingly regular occurance.~ */ EXTERN ~%IMOEN_JOINED%~ SORRY_SKIE_IMOEN
 	END
 
 	// Left before Skie dead via item, Imoen and Jaheira not available
@@ -258,7 +258,7 @@ APPEND MINSCJ
 	IF ~~ BEGIN WHY_YOU_MINSC
 		SAY @3024 /* ~Boo wonders why they think you did it.~ */
 		+ ~!IsValidForPartyDialogue("JAHEIRA") !IsValidForPartyDialogue("IMOEN2")~ + @3016 /* ~I don't know.  Dopplegangers maybe?~ */ + LETS_GO_MINSC
-		+ ~!IsValidForPartyDialogue("JAHEIRA") IsValidForPartyDialogue("IMOEN2")~ + @3016 /* ~I don't know.  Dopplegangers maybe?~ */ EXTERN ~IMOEN2J~ LETS_GO_IMOEN
+		+ ~!IsValidForPartyDialogue("JAHEIRA") IsValidForPartyDialogue("IMOEN2")~ + @3016 /* ~I don't know.  Dopplegangers maybe?~ */ EXTERN ~%IMOEN_JOINED%~ LETS_GO_IMOEN
 		+ ~IsValidForPartyDialogue("JAHEIRA")~ + @3016 /* ~I don't know.  Dopplegangers maybe?~ */ EXTERN ~JAHEIRAJ~ LETS_GO_JAHEIRA
 	END
 
@@ -279,7 +279,7 @@ APPEND MINSCJ
 	IF ~~ BEGIN	ENTAR_DAGGER_LEGS_MINSC
 		SAY @3019 /* ~What does he think?  The dagger sprouted legs and walked out on it's own?  It wasn't to be found in the entire area.~ */
 		+ ~!IsValidForPartyDialogue("JAHEIRA") !IsValidForPartyDialogue("IMOEN2")~ + @3022 /* ~Who can say what they think.  But let's worry about this once we're out of here.~ */ + RIGHT_MINSC
-		+ ~!IsValidForPartyDialogue("JAHEIRA") IsValidForPartyDialogue("IMOEN2")~ + @3022 /* ~Who can say what they think.  But let's worry about this once we're out of here.~ */ EXTERN ~IMOEN2J~ RIGHT_IMOEN
+		+ ~!IsValidForPartyDialogue("JAHEIRA") IsValidForPartyDialogue("IMOEN2")~ + @3022 /* ~Who can say what they think.  But let's worry about this once we're out of here.~ */ EXTERN ~%IMOEN_JOINED%~ RIGHT_IMOEN
 		+ ~IsValidForPartyDialogue("JAHEIRA")~ + @3022 /* ~Who can say what they think.  But let's worry about this once we're out of here.~ */ EXTERN ~JAHEIRAJ~ RIGHT_JAHEIRA
 	END
 
@@ -287,7 +287,7 @@ APPEND MINSCJ
 	IF ~~ BEGIN	DUKES_DAGGER_LEGS_MINSC
 		SAY @3020 /* ~What do they think?  The dagger sprouted legs and walked out on it's own?  It wasn't to be found in the entire area.~ */
 		+ ~!IsValidForPartyDialogue("JAHEIRA") !IsValidForPartyDialogue("IMOEN2")~ + @3022 /* ~Who can say what they think.  But let's worry about this once we're out of here.~ */ + RIGHT_MINSC
-		+ ~!IsValidForPartyDialogue("JAHEIRA") IsValidForPartyDialogue("IMOEN2")~ + @3022 /* ~Who can say what they think.  But let's worry about this once we're out of here.~ */ EXTERN ~IMOEN2J~ RIGHT_IMOEN
+		+ ~!IsValidForPartyDialogue("JAHEIRA") IsValidForPartyDialogue("IMOEN2")~ + @3022 /* ~Who can say what they think.  But let's worry about this once we're out of here.~ */ EXTERN ~%IMOEN_JOINED%~ RIGHT_IMOEN
 		+ ~IsValidForPartyDialogue("JAHEIRA")~ + @3022 /* ~Who can say what they think.  But let's worry about this once we're out of here.~ */ EXTERN ~JAHEIRAJ~ RIGHT_JAHEIRA
 	END
 

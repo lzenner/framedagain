@@ -11,12 +11,6 @@ DEFINE_ACTION_FUNCTION main_framed BEGIN
 		END
 	BUT_ONLY_IF_IT_CHANGES
 
-	// Compile dialogue about the posters in the dungeon
-	COMPILE EVALUATE_BUFFER ~%mod_root%/dialogues/main_framed.d~ USING ~%tra_loc%/%s/main_framed.tra~
-	EXTEND_TOP ~IMOEN.BCS~ ~%mod_root%/scripts/main_framed_imoen.baf~
-	EXTEND_TOP ~JAHEIRA.BCS~ ~%mod_root%/scripts/main_framed_jaheira.baf~
-	EXTEND_TOP ~MINSC.BCS~ ~%mod_root%/scripts/main_framed_minsc.baf~
-
 	// Put the required scroll(s) into the game
 	ACTION_IF GAME_IS ~BG2EE~ BEGIN
 		// We have no idea if they even played SoD
@@ -59,5 +53,16 @@ DEFINE_ACTION_FUNCTION main_framed BEGIN
 				match = ~Global("BG1Pantaloons","GLOBAL",0)~
 				insert = ~%mod_root%/scripts/main_framed_eet.baf~
 		END
+
+		// Imoen's dialogue file is different here
+		// Once EET End is installed, it won't make a difference
+		// But for testing without it, it's very helpful
+		OUTER_SPRINT ~IMOEN_JOINED~ ~IMOEN2J~
 	END
+
+	// Compile dialogue about the posters in the dungeon
+	COMPILE EVALUATE_BUFFER ~%mod_root%/dialogues/main_framed.d~ USING ~%tra_loc%/%s/main_framed.tra~
+	EXTEND_TOP ~IMOEN.BCS~ ~%mod_root%/scripts/main_framed_imoen.baf~
+	EXTEND_TOP ~JAHEIRA.BCS~ ~%mod_root%/scripts/main_framed_jaheira.baf~
+	EXTEND_TOP ~MINSC.BCS~ ~%mod_root%/scripts/main_framed_minsc.baf~
 END
