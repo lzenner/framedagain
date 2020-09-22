@@ -29,8 +29,17 @@ THEN
 END
 
 IF
+	Global("#L_PosterTalk","GLOBAL",1)
+	!IsValidForPartyDialogue(MYSELF)
+THEN
+	RESPONSE #100
+		SetGlobal("#L_PosterTalk","GLOBAL",2)
+END
+
+IF
 	GlobalTimerExpired("#L_PosterTimer","GLOBAL")
 	Global("#L_PosterTalk","GLOBAL",1)
+	IsValidForPartyDialogue(MYSELF)
 THEN
 	RESPONSE #100
 		StartDialogueNoSet(Player1)

@@ -5,39 +5,27 @@
 
 IF
 	Global("#L_PosterStashed","GLOBAL",0)
-	Global("bd_player_exiled","GLOBAL",2) // Left before Skie dead via item
+	Switch("bd_player_exiled","GLOBAL")
 THEN
-	RESPONSE #100
-		// Left before Skie is killed
-		// Dukes want a trial
-		// Entar wants a head on a platter
+	RESPONSE #0
+		// Escaped
+		// All dukes put out the bounty
 		SetGlobal("#L_PosterStashed","GLOBAL",1)
-		ActionOverride("JailkeepTable",CreateItem("#LScr01",1,0,0))
-		ActionOverride("JailkeepTable",CreateItem("#LScr03",1,0,0))
+		ActionOverride("JailkeepTable",CreateItem("#LScr02",1,0,0))
 		Continue()
-END
-
-IF
-	Global("#L_PosterStashed","GLOBAL",0)
-	Global("bd_player_exiled","GLOBAL",1)
-THEN
-	RESPONSE #100
+	RESPONSE #1
 		// Exiled by the dukes
 		// Entar puts out a bounty anyway
 		SetGlobal("#L_PosterStashed","GLOBAL",1)
 		ActionOverride("JailkeepTable",CreateItem("#LScr03",1,0,0))
 		Continue()
-END
-
-IF
-	Global("#L_PosterStashed","GLOBAL",0)
-	Global("bd_player_exiled","GLOBAL",0)
-THEN
-	RESPONSE #100
-		// Escaped
-		// All dukes put out the bounty
+	RESPONSE #2
+		// Left before Skie dead via item
+		// Dukes want a trial
+		// Entar wants a head on a platter
 		SetGlobal("#L_PosterStashed","GLOBAL",1)
-		ActionOverride("JailkeepTable",CreateItem("#LScr02",1,0,0))
+		ActionOverride("JailkeepTable",CreateItem("#LScr01",1,0,0))
+		ActionOverride("JailkeepTable",CreateItem("#LScr03",1,0,0))
 		Continue()
 END
 
