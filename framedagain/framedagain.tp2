@@ -20,7 +20,9 @@ ALWAYS
       LAF DO_RUN_ONCE END
 
       // Variables used to point to files
-      INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
+      ACTION_IF GAME_IS ~eet~ BEGIN
+         INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
+      END
       INCLUDE ~%mod_root%/lib/#l_eet_cmpvars.tpa~
 
       // Library functions used throughout
