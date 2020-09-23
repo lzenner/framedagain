@@ -349,14 +349,9 @@ EXTEND_BOTTOM IDJINNI 10
 END
 
 // Give the soul dagger when the genie is freed
-ALTER_TRANS IDJINNI
-	BEGIN 12 END
-	BEGIN 0 END
-	BEGIN
-		"ACTION" ~EraseJournalEntry(34099) EraseJournalEntry(47514) AddexperienceParty(15000) GivePartyAllEquipment() GiveItemCreate("l#2sda1",Player1,1,0,0) TakePartyItem("misc4d")~
-		"SOLVED_JOURNAL" ~#47515~
-		"EPILOGUE" "GOTO 19"
-	END
+EXTEND_BOTTOM IDJINNI 12
+	IF ~Global("#L_DestroyedDagger","GLOBAL",1)~ DO ~EraseJournalEntry(34099) EraseJournalEntry(47514) AddexperienceParty(15000) GivePartyAllEquipment() GiveItemCreate("l#2sda1",Player1,1,0,0) TakePartyItem("misc4d")~ SOLVED_JOURNAL #47515 GOTO 19
+END
 
 APPEND IDJINNI
 	IF ~~ BEGIN TRIAL_SKIPPED_NO_JOURNAL_1
