@@ -25,7 +25,7 @@ Quest: Find and return Skie's soul dagger to Entar Silvershield
 ------------------------------------------------------------------------
 Requires Main Component
 Adds a mechanism to free Skie's soul and end the PC's exile from Baldur's Gate
-NOTE: If "The Cost Of One Girl's Soul" mod is installed, you will have the in-game choice of which method to use to help Skie.  Either one will stop the bounty hunter attacks and end the PC's exile.
+NOTE: If "The Cost Of One Girl's Soul" quest is installed, you will have the in-game choice of which method to use to help Skie.  Either one will stop the bounty hunter attacks and end the PC's exile.  If you throw away his version of the dagger, you will cancel both quests.
 
 ------------------------------------------------------------------------
 PLANNED FUTURE ENHANCEMENTS

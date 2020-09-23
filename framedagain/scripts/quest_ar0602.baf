@@ -5,8 +5,24 @@
 
 IF
 	Global("#L_FramedQuest","GLOBAL",0)
+	Global("#L_FramedQuestSet","MYAREA",0)
 THEN
 	RESPONSE #100
 		SetGlobal("#L_FramedQuest","GLOBAL",1)
+		SetGlobal("#L_FramedQuestSet","MYAREA",1)
 		Continue()
 END
+
+// Lava allows for his dagger to be tossed
+// Which hoses our quest before it has a chance to start
+// C'est la vie
+IF
+	GlobalGT("#L_FramedQuest","GLOBAL",0)
+	Global("L#2SkieDaggerImoen","GLOBAL",50)
+THEN
+	RESPONSE #100
+		SetGlobal("#L_FramedQuest","GLOBAL",0)
+		EraseJournalEntry(@3100)
+		Continue()
+END
+

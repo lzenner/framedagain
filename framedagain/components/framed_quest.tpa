@@ -10,7 +10,7 @@ DEFINE_ACTION_FUNCTION framed_quest BEGIN
 		SAY DESC  @1001
 
 	// Add the global saying we're doing the quest
-	EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/quest_ar0602.baf~
+	EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/quest_ar0602.baf~ USING ~%tra_loc%/%s/framed_quest.tra~
 
 	// Define the journal entries to be used during the quest
 	ADD_JOURNAL @3100 USING ~%tra_loc%/%s/framed_quest.tra~
