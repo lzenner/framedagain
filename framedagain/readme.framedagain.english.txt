@@ -18,6 +18,7 @@ DESCRIPTION
 Main Component: Add wanted poster and dialogue to Chateau Irenicus
 ------------------------------------------------------------------------
 Adds a wanted poster and perhaps an arrest warrant to Irenicus' dungeon and conversations about them to make sure the PC is aware of the frame-up details.
+NOTE: If "The Cost Of One Girl's Soul" mod is installed, the item that starts the quest will be moved to the Genie in the Plane of Air to allow the PC time to learn about the murder and the significance of the dagger.
 
 ------------------------------------------------------------------------
 PLANNED FUTURE ENHANCEMENTS
