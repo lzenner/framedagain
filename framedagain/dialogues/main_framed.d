@@ -325,11 +325,13 @@ ALTER_TRANS IDJINNI
 	BEGIN 9 END 
 	BEGIN 0 END
 	BEGIN
-		"TRIGGER" ~Global("bd_player_exiled","GLOBAL",2)~  //Skipped Trial
+		"TRIGGER" ~OR(2) Global("#L_DestroyedDagger","GLOBAL",1) Global("#L_FramedQuest","GLOBAL",1) Global("bd_player_exiled","GLOBAL",2)~  //Skipped Trial
 		"EPILOGUE" ~GOTO TRIAL_SKIPPED_NO_JOURNAL_1~
 	END
 EXTEND_BOTTOM IDJINNI 9
-	IF ~!Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO TRIAL_NO_JOURNAL
+	IF ~OR(2) Global("#L_DestroyedDagger","GLOBAL",1) Global("#L_FramedQuest","GLOBAL",1) !Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO TRIAL_NO_JOURNAL
+	IF ~!Global("#L_DestroyedDagger","GLOBAL",1) Global("#L_FramedQuest","GLOBAL",0) Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO NQ_NT_NJ
+	IF ~!Global("#L_DestroyedDagger","GLOBAL",1) Global("#L_FramedQuest","GLOBAL",0) !Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO NQ_T_NJ
 END
 
 // This one will end with a journal entry
@@ -337,11 +339,13 @@ ALTER_TRANS IDJINNI
 	BEGIN 10 END 
 	BEGIN 0 END
 	BEGIN
-		"TRIGGER" ~Global("bd_player_exiled","GLOBAL",2)~  //Skipped Trial
+		"TRIGGER" ~OR(2) Global("#L_DestroyedDagger","GLOBAL",1) Global("#L_FramedQuest","GLOBAL",1) Global("bd_player_exiled","GLOBAL",2)~  //Skipped Trial
 		"EPILOGUE" ~GOTO TRIAL_SKIPPED_JOURNAL_1~
 	END
-EXTEND_BOTTOM IDJINNI 9
-	IF ~!Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO TRIAL_JOURNAL
+EXTEND_BOTTOM IDJINNI 10
+	IF ~OR(2) Global("#L_DestroyedDagger","GLOBAL",1) Global("#L_FramedQuest","GLOBAL",1) !Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO TRIAL_JOURNAL
+	IF ~Global("#L_DestroyedDagger","GLOBAL",0) Global("#L_FramedQuest","GLOBAL",0) Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO NQ_NT_J
+	IF ~Global("#L_DestroyedDagger","GLOBAL",0) Global("#L_FramedQuest","GLOBAL",0) !Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO NQ_T_J
 END
 
 // Give the soul dagger when the genie is freed
@@ -396,5 +400,38 @@ APPEND IDJINNI
 		= @3032 /* ~I am protecting the dagger for the master.  If you free me, I will you give it and your weapon.~ */
   		IF ~~ THEN DO ~SetGlobal("HelpDjinni","GLOBAL",1)~ UNSOLVED_JOURNAL #34099 EXIT
 	END
-END
 
+	IF ~~ BEGIN NQ_NT_NJ
+		SAY @3034 /* ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~ */
+		++ @3028 /* ~Are you saying this mad mage is the one who murdered Skie?~ */ + NQ_NT_NJ_2
+	END
+
+	IF ~~ BEGIN NQ_NT_NJ_2
+		SAY @3029 /* ~Indeed, so he could separate you from those who protected you. */
+		= @3035 /* ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~ */
+		IF ~~ THEN EXIT
+	END
+
+	IF ~~ BEGIN NQ_T_NJ
+		SAY @3034 /* ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~ */
+		= @3035 /* ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~ */
+		IF ~~ THEN EXIT
+	END
+
+	IF ~~ BEGIN NQ_NT_J
+		SAY @3034 /* ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~ */
+		++ @3028 /* ~Are you saying this mad mage is the one who murdered Skie?~ */ + NQ_NT_J_2
+	END
+
+	IF ~~ BEGIN NQ_NT_J_2
+		SAY @3029 /* ~Indeed, so he could separate you from those who protected you. */
+		= @3035 /* ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~ */
+  		IF ~~ THEN DO ~SetGlobal("HelpDjinni","GLOBAL",1)~ UNSOLVED_JOURNAL #34099 EXIT
+	END
+
+	IF ~~ BEGIN NQ_T_J
+		SAY @3034 /* ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~ */
+		= @3035 /* ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~ */
+  		IF ~~ THEN DO ~SetGlobal("HelpDjinni","GLOBAL",1)~ UNSOLVED_JOURNAL #34099 EXIT
+	END
+END
