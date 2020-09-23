@@ -321,3 +321,80 @@ APPEND MINSCJ
 	END
 END
 
+ALTER_TRANS IDJINNI
+	BEGIN 9 END 
+	BEGIN 0 END
+	BEGIN
+		"TRIGGER" ~Global("bd_player_exiled","GLOBAL",2)~  //Skipped Trial
+		"EPILOGUE" ~GOTO TRIAL_SKIPPED_NO_JOURNAL_1~
+	END
+EXTEND_BOTTOM IDJINNI 9
+	IF ~!Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO TRIAL_NO_JOURNAL
+END
+
+// This one will end with a journal entry
+ALTER_TRANS IDJINNI
+	BEGIN 10 END 
+	BEGIN 0 END
+	BEGIN
+		"TRIGGER" ~Global("bd_player_exiled","GLOBAL",2)~  //Skipped Trial
+		"EPILOGUE" ~GOTO TRIAL_SKIPPED_JOURNAL_1~
+	END
+EXTEND_BOTTOM IDJINNI 9
+	IF ~!Global("bd_player_exiled","GLOBAL",2)~ THEN GOTO TRIAL_JOURNAL
+END
+
+// Give the soul dagger when the genie is freed
+ALTER_TRANS IDJINNI
+	BEGIN 12 END
+	BEGIN 0 END
+	BEGIN
+		"ACTION" ~EraseJournalEntry(34099) EraseJournalEntry(47514) AddexperienceParty(15000) GivePartyAllEquipment() GiveItemCreate("l#2sda1",Player1,1,0,0) TakePartyItem("misc4d")~
+		"SOLVED_JOURNAL" ~#47515~
+		"EPILOGUE" "GOTO 19"
+	END
+
+APPEND IDJINNI
+	IF ~~ BEGIN TRIAL_SKIPPED_NO_JOURNAL_1
+		SAY @3027 /* ~To sweeten the deal, I will give you the dagger the master used to frame you.  I will have no use for it.~ */
+		++ @3028 /* ~Are you saying this mad mage is the one who murdered Skie?~ */ + TRIAL_SKIPPED_NO_JOURNAL_2
+	END
+
+	IF ~~ BEGIN TRIAL_SKIPPED_NO_JOURNAL_2
+		SAY @3029 /* ~Indeed, so he could separate you from those who protected you. */
+		++ @3030 /* ~Is her soul trapped in this dagger?  Can we free her?~ */ + NO_JOURNAL
+	END
+
+	IF ~~ BEGIN TRIAL_NO_JOURNAL
+		SAY @3027 /* ~To sweeten the deal, I will give you the dagger the master used to frame you.  I will have no use for it.~ */
+		++ @3030 /* ~Is her soul trapped in this dagger?  Can we free her?~ */ + NO_JOURNAL
+	END
+
+	IF ~~ BEGIN NO_JOURNAL
+		SAY @3031 /* ~I believe so on both accounts.~ */
+		= @3032 /* ~I am protecting the dagger for the master.  If you free me, I will you give it and your weapon.~ */
+		IF ~~ THEN EXIT
+	END
+
+	IF ~~ BEGIN TRIAL_SKIPPED_JOURNAL_1
+		SAY @3027 /* ~To sweeten the deal, I will give you the dagger the master used to frame you.  I will have no use for it.~ */
+		++ @3028 /* ~Are you saying this mad mage is the one who murdered Skie?~ */ + TRIAL_SKIPPED_JOURNAL_2
+	END
+
+	IF ~~ BEGIN TRIAL_SKIPPED_JOURNAL_2
+		SAY @3029 /* ~Indeed, so he could separate you from those who protected you. */
+		++ @3030 /* ~Is her soul trapped in this dagger?  Can we free her?~ */ + DO_JOURNAL
+	END
+
+	IF ~~ BEGIN TRIAL_JOURNAL
+		SAY @3027 /* ~To sweeten the deal, I will give you the dagger the master used to frame you.  I will have no use for it.~ */
+		++ @3030 /* ~Is her soul trapped in this dagger?  Can we free her?~ */ + DO_JOURNAL
+	END
+
+	IF ~~ BEGIN DO_JOURNAL
+		SAY @3031 /* ~I believe so on both accounts.~ */
+		= @3032 /* ~I am protecting the dagger for the master.  If you free me, I will you give it and your weapon.~ */
+  		IF ~~ THEN DO ~SetGlobal("HelpDjinni","GLOBAL",1)~ UNSOLVED_JOURNAL #34099 EXIT
+	END
+END
+
