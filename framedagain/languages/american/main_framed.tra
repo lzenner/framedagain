@@ -4,21 +4,27 @@
 // This is the only bit that might be used for Transitions //
 /////////////////////////////////////////////////////////////
 
-@3000	= ~What is that?  Skie Silvershield is dead?~
+////////////////////////////////////////////////////////////////////////////
+// Initial dialogue with the group about the wanted poster/arrest warrant //
+////////////////////////////////////////////////////////////////////////////
+@3000	= ~What is that?  Skie Silvershield is dead?~	// Skipped the trial portion of SoD
+@3025	= ~Did you see this, <CHARNAME>?  Listen!~  // Reads arrest warrant
+@3026	= ~And that's not all!~						// Reads bounty notice/wanted poster
 @3001	= ~It seems she's been murdered alright.  And for some reason I am wanted for it.~
 @3002	= ~Don't tell me you've been framed again!~
 @3003	= ~It would appear so.  This is becoming an annoyingly regular occurance.~
 @3004	= ~I am sorry to hear about Skie though.~
 @3005	= ~Yeah, me too.~
-@3006	= ~What is that?  Duke Entar put a price on your head?~
-@3007	= ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~
+@3006	= ~What is that?  Duke Entar put a price on your head?~	// BG2 or Exiled
+@3007	= ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~ // Escaped from jail
 @3008	= ~A rather high price, actually. This is becoming an annoyingly regular occurance.~
 @3009	= ~At least this time you know who wants you dead, and why.~
 @3010	= ~Oddly enough, that doesn't feel like much of an improvement.~
 @3011	= ~Duke Entar must be about out of his mind, losing both of his children.~
 @3012	= ~Yeah, I'd feel a lot sorrier for him if he hadn't put a 10,000 gold reward on my head.~
-@3013	= ~What's this about a soul dagger?~
+@3013	= ~What's this about a soul dagger?~	// Skipped the trial portion of SoD
 @3014	= ~Your guess is as good as mine.~
+@3024	= ~Boo wonders why they think you did it.~
 @3015	= ~I wonder why they think you did it.~
 @3016	= ~I don't know.  Dopplegangers maybe?~
 @3017	= ~Hmm, could be.  But let's worry about this once we're out of here.~
@@ -28,6 +34,11 @@
 @3021	= ~Who can say what goes on inside his head.  But let's worry about this once we're out of here.~
 @3022	= ~Who can say what they think.  But let's worry about this once we're out of here.~
 @3023	= ~Right!  First things first.~
-@3024	= ~Boo wonders why they think you did it.~
-@3025	= ~Did you see this, <CHARNAME>?  Listen!~
-@3026	= ~And that's not all!~
+
+////////////
+// #3024-26 up in initial conversation
+////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Conversation with the Genie in the Plane of Air about the soul dagger //
+///////////////////////////////////////////////////////////////////////////

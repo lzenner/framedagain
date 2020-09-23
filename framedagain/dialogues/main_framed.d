@@ -21,6 +21,8 @@ APPEND %IMOEN_JOINED%
 	// BG2 or Exiled, i.e. Entar is the only duke going after PC 
 	IF ~Global("#L_PosterTalk","GLOBAL",1) OR(2) Global("bd_player_exiled","GLOBAL",1) Global("#L_EET","GLOBAL",0)~ BEGIN ENTAR_BOUNTY_IMOEN
 		SAY @3006 /* ~What is that?  Duke Entar put a price on your head?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ3%
 		+ ~!IsValidForPartyDialogue("JAHEIRA")~ + @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + POOR_ENTAR_IMOEN
 		+ ~IsValidForPartyDialogue("JAHEIRA")~ + @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ EXTERN ~JAHEIRAJ~ POOR_ENTAR_JAHEIRA
 	END
@@ -28,6 +30,8 @@ APPEND %IMOEN_JOINED%
 	// Escaped after found guilty, all dukes are after PC
 	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",0) Global("#L_EET","GLOBAL",1)~ BEGIN DUKES_BOUNTY_IMOEN
 		SAY @3007 /* ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ2%
 		++ @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + AT_LEAST_KNOW_IMOEN
 	END
 
@@ -121,12 +125,16 @@ APPEND JAHEIRAJ
 	// BG2 or Exiled, i.e. Entar is the only duke going after PC, Imoen not available
 	IF ~Global("#L_PosterTalk","GLOBAL",2) OR(2) Global("bd_player_exiled","GLOBAL",1) Global("#L_EET","GLOBAL",0)~ BEGIN ENTAR_BOUNTY_JAHEIRA
 		SAY @3006 /* ~What is that?  Duke Entar put a price on your head?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ3%
 		++ @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + POOR_ENTAR_JAHEIRA
 	END
 
 	// Escaped after found guilty, all dukes are after PC, Imoen not available
 	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",0) Global("#L_EET","GLOBAL",1)~ BEGIN DUKES_BOUNTY_IMOEN
 		SAY @3007 /* ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ2%
 		+ ~!IsValidForPartyDialogue("MINSC")~ + @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + AT_LEAST_KNOW_JAHEIRA
 		+ ~IsValidForPartyDialogue("MINSC")~ + @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ EXTERN ~MINSCJ~ AT_LEAST_KNOW_MINSC
 	END
@@ -223,12 +231,16 @@ APPEND MINSCJ
 	// BG2 or Exiled, i.e. Entar is the only duke going after PC, Imoen and Jaheira not available
 	IF ~Global("#L_PosterTalk","GLOBAL",3) OR(2) Global("bd_player_exiled","GLOBAL",1) Global("#L_EET","GLOBAL",0)~ BEGIN ENTAR_BOUNTY_MINSC
 		SAY @3006 /* ~What is that?  Duke Entar put a price on your head?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ3%
 		++ @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + POOR_ENTAR_MINSC
 	END
 
 	// Escaped after found guilty, all dukes are after PC, Imoen and Jaheira not available
 	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",0) Global("#L_EET","GLOBAL",1)~ BEGIN DUKES_BOUNTY_MINSC
 		SAY @3007 /* ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ2%
 		++ @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + AT_LEAST_KNOW_MINSC
 	END
 
