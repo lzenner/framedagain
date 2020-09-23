@@ -15,12 +15,12 @@ DEFINE_ACTION_FUNCTION main_framed BEGIN
 	ACTION_IF GAME_IS ~BG2EE~ BEGIN
 		OUTER_SET SCROLL_READ1 = 0
 		OUTER_SET SCROLL_READ2 = 0
-		OUTER_SET SCROLL_READ3 = RESOLVE_STR_REF (@1004)
+		OUTER_SET SCROLL_READ3 = RESOLVE_STR_REF (@11004)
 		// We have no idea if they even played SoD
 		// Just put in the wanted poster from Entar
 		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr03.itm~
-    		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
-    		SAY DESC  @1004 /* Wanted dead or alive by Entar */
+    		SAY NAME2 @11002	/* ~<CHARNAME>'s Wanted Poster~ */
+    		SAY DESC  @11004 /* Wanted dead or alive by Entar */
 
 		// Add the poster to Chateau Irenicus
 		LAF INSERT_SCRIPT_BLOCK
@@ -36,18 +36,18 @@ DEFINE_ACTION_FUNCTION main_framed BEGIN
 		// Will need to put in all variations of the posters/warrants
 		// Which one(s) will actually be found in the dungeon will be dependent upon 
 		// the value of bd_player_exiled at the time the PC is transferred to BG2
-		OUTER_SET SCROLL_READ1 = RESOLVE_STR_REF (@1001)
-		OUTER_SET SCROLL_READ2 = RESOLVE_STR_REF (@1003)
-		OUTER_SET SCROLL_READ3 = RESOLVE_STR_REF (@1004)
+		OUTER_SET SCROLL_READ1 = RESOLVE_STR_REF (@11001)
+		OUTER_SET SCROLL_READ2 = RESOLVE_STR_REF (@11003)
+		OUTER_SET SCROLL_READ3 = RESOLVE_STR_REF (@11004)
 		COPY ~%mod_root%/objects/#LScr01.itm~ ~override~
-    		SAY NAME2 @1000	/* ~Warrant for <CHARNAME>'s Arrest~ */
-			SAY DESC  @1001 /* Wanted alive by the dukes for questioning */
+    		SAY NAME2 @11000	/* ~Warrant for <CHARNAME>'s Arrest~ */
+			SAY DESC  @11001 /* Wanted alive by the dukes for questioning */
 		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr02.itm~
-    		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
-    		SAY DESC  @1003 /* Wanted dead or alive by all the dukes */
+    		SAY NAME2 @11002	/* ~<CHARNAME>'s Wanted Poster~ */
+    		SAY DESC  @11003 /* Wanted dead or alive by all the dukes */
 		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr03.itm~
-    		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
-    		SAY DESC  @1004 /* Wanted dead or alive by Entar */
+    		SAY NAME2 @11002	/* ~<CHARNAME>'s Wanted Poster~ */
+    		SAY DESC  @11004 /* Wanted dead or alive by Entar */
 
 		// Add the poster(s) to Chateau Irenicus
 		LAF INSERT_SCRIPT_BLOCK
