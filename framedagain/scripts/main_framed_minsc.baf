@@ -5,45 +5,33 @@
 
 IF
 	Global("#L_PosterTalk","GLOBAL",0)
-	IsValidForPartyDialogue("MYSELF")
-	!IsValidForPartyDialogue("IMOEN2")
-	!IsValidForPartyDialogue("JAHEIRA")
-	Global("bd_player_exiled","GLOBAL",2) // Left before Skie dead via item
-	PartyHasItem("#LScr01")
-	PartyHasItem("#LScr03")
-THEN
-	RESPONSE #100
-		SetGlobal("#L_PosterTalk","GLOBAL",3)
-		SetGlobalTimer("#L_PosterTimer","GLOBAL",TWO_MINUTES)
-END
-
-IF
-	Global("#L_PosterTalk","GLOBAL",0)
 	IsValidForPartyDialogue(MYSELF)
 	!IsValidForPartyDialogue("IMOEN2")
 	!IsValidForPartyDialogue("JAHEIRA")
-	!Global("bd_player_exiled","GLOBAL",2) // BG2 or went through trial
-	OR(2)
-		PartyHasItem("#LScr02") // Escaped after found guilty
-		PartyHasItem("#LScr03") // BG2 or Exiled
+	OR(4)
+		Range("JailkeepTable",10)
+		PartyHasItem("#LScr01")
+		PartyHasItem("#LScr02")
+		PartyHasItem("#LScr03")
 THEN
 	RESPONSE #100
+		SetGlobalTimer("#L_PosterTimer","GLOBAL",ONE_MINUTE)
 		SetGlobal("#L_PosterTalk","GLOBAL",3)
-		SetGlobalTimer("#L_PosterTimer","GLOBAL",TWO_MINUTES)
 END
 
 IF
-	Global("#L_PosterTalk","GLOBAL",2)
+	Global("#L_PosterTalk","GLOBAL",3)
 	!IsValidForPartyDialogue(MYSELF)
 THEN
 	RESPONSE #100
-		SetGlobal("#L_PosterTalk","GLOBAL",9)
+		// Re-evaluate
+		SetGlobal("#L_PosterTalk","GLOBAL",0)
 END
 
 IF
 	GlobalTimerExpired("#L_PosterTimer","GLOBAL")
-	IsValidForPartyDialogue(MYSELF)
 	Global("#L_PosterTalk","GLOBAL",3)
+	IsValidForPartyDialogue(MYSELF)
 THEN
 	RESPONSE #100
 		StartDialogueNoSet(Player1)

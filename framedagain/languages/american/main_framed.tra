@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////
 
 @3000	= ~What is that?  Skie Silvershield is dead?~
-@3001	= ~I guess so.  And for some reason I am wanted for it.~
+@3001	= ~It seems she's been murdered alright.  And for some reason I am wanted for it.~
 @3002	= ~Don't tell me you've been framed again!~
 @3003	= ~It would appear so.  This is becoming an annoyingly regular occurance.~
 @3004	= ~I am sorry to hear about Skie though.~
@@ -29,3 +29,5 @@
 @3022	= ~Who can say what they think.  But let's worry about this once we're out of here.~
 @3023	= ~Right!  First things first.~
 @3024	= ~Boo wonders why they think you did it.~
+@3025	= ~Did you see this, <CHARNAME>?  Listen!~
+@3026	= ~And that's not all!~

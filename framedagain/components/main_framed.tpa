@@ -13,6 +13,9 @@ DEFINE_ACTION_FUNCTION main_framed BEGIN
 
 	// Put the required scroll(s) into the game
 	ACTION_IF GAME_IS ~BG2EE~ BEGIN
+		OUTER_SET SCROLL_READ1 = 0
+		OUTER_SET SCROLL_READ2 = 0
+		OUTER_SET SCROLL_READ3 = RESOLVE_STR_REF (@1004)
 		// We have no idea if they even played SoD
 		// Just put in the wanted poster from Entar
 		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr03.itm~
@@ -33,6 +36,9 @@ DEFINE_ACTION_FUNCTION main_framed BEGIN
 		// Will need to put in all variations of the posters/warrants
 		// Which one(s) will actually be found in the dungeon will be dependent upon 
 		// the value of bd_player_exiled at the time the PC is transferred to BG2
+		OUTER_SET SCROLL_READ1 = RESOLVE_STR_REF (@1001)
+		OUTER_SET SCROLL_READ2 = RESOLVE_STR_REF (@1003)
+		OUTER_SET SCROLL_READ3 = RESOLVE_STR_REF (@1004)
 		COPY ~%mod_root%/objects/#LScr01.itm~ ~override~
     		SAY NAME2 @1000	/* ~Warrant for <CHARNAME>'s Arrest~ */
 			SAY DESC  @1001 /* Wanted alive by the dukes for questioning */

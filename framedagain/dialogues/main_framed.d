@@ -7,22 +7,26 @@
 
 APPEND %IMOEN_JOINED%
 	// Left before Skie dead via item
-	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",2) PartyHasItem("#LScr01") PartyHasItem("#LScr03")~ BEGIN SKIE_DEAD_IMOEN
+	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",2)~ BEGIN SKIE_DEAD_IMOEN
 		SAY @3000 /* ~What is that?  Skie Silvershield is dead?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ1%
+		= @3026	/* ~And that's not all!~ */
+		= #%SCROLL_READ3%
 		+ ~!IsValidForPartyDialogue("JAHEIRA") !IsValidForPartyDialogue("MINSC")~ + @3001 /* ~I guess so.  And for some reason I am wanted for it.~ */ + FRAMED_AGAIN_IMOEN
 		+ ~!IsValidForPartyDialogue("JAHEIRA") IsValidForPartyDialogue("MINSC")~ + @3001 /* ~I guess so.  And for some reason I am wanted for it.~ */ EXTERN ~MINSCJ~ FRAMED_AGAIN_MINSC
 		+ ~IsValidForPartyDialogue("JAHEIRA")~ + @3001 /* ~I guess so.  And for some reason I am wanted for it.~ */ EXTERN ~JAHEIRAJ~ FRAMED_AGAIN_JAHEIRA
 	END
 
 	// BG2 or Exiled, i.e. Entar is the only duke going after PC 
-	IF ~Global("#L_PosterTalk","GLOBAL",1) !Global("bd_player_exiled","GLOBAL",2) PartyHasItem("#LScr03")~ BEGIN ENTAR_BOUNTY_IMOEN
+	IF ~Global("#L_PosterTalk","GLOBAL",1) OR(2) Global("bd_player_exiled","GLOBAL",1) Global("#L_EET","GLOBAL",0)~ BEGIN ENTAR_BOUNTY_IMOEN
 		SAY @3006 /* ~What is that?  Duke Entar put a price on your head?~ */
 		+ ~!IsValidForPartyDialogue("JAHEIRA")~ + @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + POOR_ENTAR_IMOEN
 		+ ~IsValidForPartyDialogue("JAHEIRA")~ + @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ EXTERN ~JAHEIRAJ~ POOR_ENTAR_JAHEIRA
 	END
 
 	// Escaped after found guilty, all dukes are after PC
-	IF ~Global("#L_PosterTalk","GLOBAL",1) PartyHasItem("#LScr02")~ BEGIN DUKES_BOUNTY_IMOEN
+	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",0) Global("#L_EET","GLOBAL",1)~ BEGIN DUKES_BOUNTY_IMOEN
 		SAY @3007 /* ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~ */
 		++ @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + AT_LEAST_KNOW_IMOEN
 	END
@@ -105,19 +109,23 @@ END
 
 APPEND JAHEIRAJ
 	// Left before Skie dead via item, Imoen not available
-	IF ~Global("#L_PosterTalk","GLOBAL",2) Global("bd_player_exiled","GLOBAL",2) PartyHasItem("#LScr01") PartyHasItem("#LScr03")~ BEGIN SKIE_DEAD_JAHEIRA
+	IF ~Global("#L_PosterTalk","GLOBAL",2) Global("bd_player_exiled","GLOBAL",2)~ BEGIN SKIE_DEAD_JAHEIRA
 		SAY @3000 /* ~What is that?  Skie Silvershield is dead?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ1%
+		= @3026	/* ~And that's not all!~ */
+		= #%SCROLL_READ3%
 		++ @3001 /* ~I guess so.  And for some reason I am wanted for it.~ */ + FRAMED_AGAIN_JAHEIRA
 	END
 
 	// BG2 or Exiled, i.e. Entar is the only duke going after PC, Imoen not available
-	IF ~Global("#L_PosterTalk","GLOBAL",2) !Global("bd_player_exiled","GLOBAL",2) PartyHasItem("#LScr03")~ BEGIN ENTAR_BOUNTY_JAHEIRA
+	IF ~Global("#L_PosterTalk","GLOBAL",2) OR(2) Global("bd_player_exiled","GLOBAL",1) Global("#L_EET","GLOBAL",0)~ BEGIN ENTAR_BOUNTY_JAHEIRA
 		SAY @3006 /* ~What is that?  Duke Entar put a price on your head?~ */
 		++ @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + POOR_ENTAR_JAHEIRA
 	END
 
 	// Escaped after found guilty, all dukes are after PC, Imoen not available
-	IF ~Global("#L_PosterTalk","GLOBAL",1) PartyHasItem("#LScr02")~ BEGIN DUKES_BOUNTY_IMOEN
+	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",0) Global("#L_EET","GLOBAL",1)~ BEGIN DUKES_BOUNTY_IMOEN
 		SAY @3007 /* ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~ */
 		+ ~!IsValidForPartyDialogue("MINSC")~ + @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + AT_LEAST_KNOW_JAHEIRA
 		+ ~IsValidForPartyDialogue("MINSC")~ + @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ EXTERN ~MINSCJ~ AT_LEAST_KNOW_MINSC
@@ -203,19 +211,23 @@ END
 
 APPEND MINSCJ
 	// Left before Skie dead via item, Imoen and Jaheira not available
-	IF ~Global("#L_PosterTalk","GLOBAL",3) Global("bd_player_exiled","GLOBAL",2) PartyHasItem("#LScr01") PartyHasItem("#LScr03")~ BEGIN SKIE_DEAD_MINSC
+	IF ~Global("#L_PosterTalk","GLOBAL",3) Global("bd_player_exiled","GLOBAL",2)~ BEGIN SKIE_DEAD_MINSC
 		SAY @3000 /* ~What is that?  Skie Silvershield is dead?~ */
+		= @3025	/* ~Did you see this, <CHARNAME>?  Listen!~ */
+		= #%SCROLL_READ1%
+		= @3026	/* ~And that's not all!~ */
+		= #%SCROLL_READ3%
 		++ @3001 /* ~I guess so.  And for some reason I am wanted for it.~ */ + FRAMED_AGAIN_MINSC
 	END
 
 	// BG2 or Exiled, i.e. Entar is the only duke going after PC, Imoen and Jaheira not available
-	IF ~Global("#L_PosterTalk","GLOBAL",3) !Global("bd_player_exiled","GLOBAL",2) PartyHasItem("#LScr03")~ BEGIN ENTAR_BOUNTY_MINSC
+	IF ~Global("#L_PosterTalk","GLOBAL",3) OR(2) Global("bd_player_exiled","GLOBAL",1) Global("#L_EET","GLOBAL",0)~ BEGIN ENTAR_BOUNTY_MINSC
 		SAY @3006 /* ~What is that?  Duke Entar put a price on your head?~ */
 		++ @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + POOR_ENTAR_MINSC
 	END
 
 	// Escaped after found guilty, all dukes are after PC, Imoen and Jaheira not available
-	IF ~Global("#L_PosterTalk","GLOBAL",1) PartyHasItem("#LScr02")~ BEGIN DUKES_BOUNTY_MINSC
+	IF ~Global("#L_PosterTalk","GLOBAL",1) Global("bd_player_exiled","GLOBAL",0) Global("#L_EET","GLOBAL",1)~ BEGIN DUKES_BOUNTY_MINSC
 		SAY @3007 /* ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~ */
 		++ @3008 /* ~A rather high price, actually. This is becoming an annoyingly regular occurance.~ */ + AT_LEAST_KNOW_MINSC
 	END
