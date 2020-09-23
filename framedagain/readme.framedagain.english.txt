@@ -18,12 +18,19 @@ DESCRIPTION
 Main Component: Add wanted poster and dialogue to Chateau Irenicus
 ------------------------------------------------------------------------
 Adds a wanted poster and perhaps an arrest warrant to Irenicus' dungeon and conversations about them to make sure the PC is aware of the frame-up details.
-NOTE: If "The Cost Of One Girl's Soul" mod is installed, the item that starts the quest will be moved to the Genie in the Plane of Air to allow the PC time to learn about the murder and the significance of the dagger.
+NOTE: If "The Cost Of One Girl's Soul" mod is installed, the item that starts that quest will be moved to the Genie in the Plane of Air to allow the PC time to learn about the murder and the significance of the dagger.
+
+------------------------------------------------------------------------
+Quest: Find and return Skie's soul dagger to Entar Silvershield
+------------------------------------------------------------------------
+Requires Main Component
+Adds a mechanism to free Skie's soul and end the PC's exile from Baldur's Gate
+NOTE: If "The Cost Of One Girl's Soul" mod is installed, you will have the in-game choice of which method to use to help Skie.  Either one will stop the bounty hunter attacks and end the PC's exile.
 
 ------------------------------------------------------------------------
 PLANNED FUTURE ENHANCEMENTS
 ------------------------------------------------------------------------
-* Add soul dagger to Chateau Irenicus if Cost of One Girl's Soul isn't loaded
+* Add soul dagger to Chateau Irenicus if Cost of One Girl's Soul isn't loaded misc56.itm
 * Make sure there are consequences to returning to city of BG before name is cleared (for EET)
 * Add bounty hunter attacks until name cleared in Baldur's Gate
 * Add quest to hand in soul dagger and stop attacks from bounty hunters and clear name
@@ -31,7 +38,7 @@ PLANNED FUTURE ENHANCEMENTS
 * Provide a lead-in for additonal quest mod dealing with Entar's revenge upon Irenicus 
 
 ------------------------------------------------------------------------
-COMPATABIITY NOTES
+COMPATIBILITY NOTES
 ------------------------------------------------------------------------
 There are no known compatability issues at this time
 

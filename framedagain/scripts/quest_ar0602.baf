@@ -1,0 +1,12 @@
+/////////////////////////////////////////////////////////////////
+// Sets up the global needed later to put the dagger into play //
+// Parsed via framed_quest.tpa                                 //
+/////////////////////////////////////////////////////////////////
+
+IF
+	Global("#L_FramedQuest","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("#L_FramedQuest","GLOBAL",1)
+		Continue()
+END

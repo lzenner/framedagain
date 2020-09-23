@@ -1,0 +1,18 @@
+///////////////////////////////////////////////////////
+// Quest to return soul dagger to Entar Silvershield //
+///////////////////////////////////////////////////////
+
+DEFINE_ACTION_FUNCTION framed_quest BEGIN
+	// Add the soultaker dagger to the game
+	COPY ~%mod_root%/objects/#LDGSoul.BAM~ ~override~
+	COPY ~%mod_root%/objects/#LDGSoul.ITM~ ~override~
+		SAY NAME2 @1000 /* ~Skie's Soultaker Dagger~ */
+		SAY DESC  @1001
+
+	// Add the global saying we're doing the quest
+	EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/quest_ar0602.baf~
+
+	// Compile the dialogues
+	COMPILE EVALUATE_BUFFER ~%mod_root%/dialogues/framed_quest.d~ USING ~%tra_loc%/%s/framed_quest.tra~
+
+END

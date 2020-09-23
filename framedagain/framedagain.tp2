@@ -33,8 +33,7 @@ ALWAYS
    // This needs to be run before every component for some reason
    // It has something to do with languages that use a different character set
    ACTION_DEFINE_ARRAY thismod_noconvert BEGIN setup END
-   ACTION_DEFINE_ARRAY thismod_reload BEGIN game cases END
-   ACTION_DEFINE_ARRAY thismod_reload BEGIN cases END
+   ACTION_DEFINE_ARRAY thismod_reload BEGIN main_game game cases END
 
    LAF HANDLE_CHARSETS 
       INT_VAR 
@@ -88,4 +87,15 @@ LABEL "#L-FRAMED2-MAIN"
 ///////////////////////////////////////
 INCLUDE ~framedagain/components/main_framed.tpa~
 LAF main_framed END
+
+
+/////////////////////////////////////////////////
+// QUEST TO FIND AND RETURN SKIE'S SOUL DAGGER //
+/////////////////////////////////////////////////
+BEGIN @6    // MOD 10
+DESIGNATED 10
+LABEL "#L-FRAMED2-QUEST"
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~framedagain.tp2~ 0) @4
+INCLUDE ~framedagain/components/framed_quest.tpa~
+LAF framed_quest END
 
