@@ -350,7 +350,7 @@ END
 
 // Give the soul dagger when the genie is freed
 EXTEND_BOTTOM IDJINNI 12
-	IF ~Global("#L_DestroyedDagger","GLOBAL",1)~ DO ~EraseJournalEntry(34099) EraseJournalEntry(47514) AddexperienceParty(15000) GivePartyAllEquipment() GiveItemCreate("l#2sda1",Player1,1,0,0) TakePartyItem("misc4d")~ SOLVED_JOURNAL #47515 GOTO 19
+	IF ~Global("#L_DestroyedDagger","GLOBAL",1) Global("#L_FramedQuest","GLOBAL",0)~ DO ~EraseJournalEntry(34099) EraseJournalEntry(47514) AddexperienceParty(15000) GivePartyAllEquipment() GiveItemCreate("l#2sda1",Player1,1,0,0) TakePartyItem("misc4d")~ SOLVED_JOURNAL #47515 GOTO 19
 END
 
 APPEND IDJINNI
@@ -371,7 +371,7 @@ APPEND IDJINNI
 
 	IF ~~ BEGIN NO_JOURNAL
 		SAY @3031 /* ~I believe so on both accounts.~ */
-		= @3032 /* ~I am protecting the dagger for the master.  If you free me, I will you give it and your weapon.~ */
+		= @3032 /* ~I am protecting the dagger for the master.  If you free me, I will give you it and your weapon.~ */
 		IF ~~ THEN EXIT
 	END
 

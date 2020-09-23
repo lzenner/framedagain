@@ -12,7 +12,9 @@ DEFINE_ACTION_FUNCTION framed_quest BEGIN
 	// Add the global saying we're doing the quest
 	EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/quest_ar0602.baf~
 
+	// Define the journal entries to be used during the quest
+	ADD_JOURNAL @3100 USING ~%tra_loc%/%s/framed_quest.tra~
+
 	// Compile the dialogues
 	COMPILE EVALUATE_BUFFER ~%mod_root%/dialogues/framed_quest.d~ USING ~%tra_loc%/%s/framed_quest.tra~
-
 END

@@ -30,7 +30,6 @@ NOTE: If "The Cost Of One Girl's Soul" mod is installed, you will have the in-ga
 ------------------------------------------------------------------------
 PLANNED FUTURE ENHANCEMENTS
 ------------------------------------------------------------------------
-* Add soul dagger to Chateau Irenicus if Cost of One Girl's Soul isn't loaded misc56.itm
 * Make sure there are consequences to returning to city of BG before name is cleared (for EET)
 * Add bounty hunter attacks until name cleared in Baldur's Gate
 * Add quest to hand in soul dagger and stop attacks from bounty hunters and clear name
