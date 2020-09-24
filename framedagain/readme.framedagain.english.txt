@@ -25,12 +25,11 @@ Quest: Find and return Skie's soul dagger to Entar Silvershield
 ------------------------------------------------------------------------
 Requires Main Component
 Adds a mechanism to free Skie's soul and end the PC's exile from Baldur's Gate
-NOTE: If "The Cost Of One Girl's Soul" quest is installed, you will have the in-game choice of which method to use to help Skie.  Either one will stop the bounty hunter attacks and end the PC's exile.  If you throw away his version of the dagger, you will cancel both quests.
+NOTE: If "The Cost Of One Girl's Soul" quest is installed, you will have the in-game choice of which method to use to help Skie.  Either one will stop the bounty hunter attacks and end the PC's exile.  If you throw away CoOGS's version of the dagger, you will cancel both quests.
 
 ------------------------------------------------------------------------
 PLANNED FUTURE ENHANCEMENTS
 ------------------------------------------------------------------------
-* Make sure there are consequences to returning to city of BG before name is cleared (for EET)
 * Add bounty hunter attacks until name cleared in Baldur's Gate
 * Add quest to hand in soul dagger and stop attacks from bounty hunters and clear name
 * Add comments about wanted posters to heads of temples, order of radiant heart and shadow thieves as well as some SoD NPCs such as Dorn
