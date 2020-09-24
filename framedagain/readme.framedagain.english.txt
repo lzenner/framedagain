@@ -8,24 +8,23 @@ GENERAL
 ------------------------------------------------------------------------
 This mod requires BG2EE or EET.
 
-The Framed Again mod's main purpose is to make sure the PC is aware of the details of them being framed when they may have skipped the murder scene in SoD via features available in the Transitions mod when loaded with EET, though it doesn't require Transitions nor EET.  It expands upon this to include random attacks by bounty hunters, allows for a resolution and the end of attacks and provides for a lead-in to another motivation for going to Spellhold. 
+The Framed Again mod's main purpose is to make sure the PC is aware of the details of them leaving Baldur's Gate when they may have skipped the ending of SoD via features available in the Transitions mod when loaded with EET, though it doesn't require Transitions nor EET.  Optionally, it expands upon this to include consequences of those events and allows for a resolution.  It also provides a lead-in to another motivation for going to Spellhold. 
 
 ------------------------------------------------------------------------
 DESCRIPTION
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
-Main Component: Add wanted poster and dialogue to Chateau Irenicus
+Main Component: Make sure PC is aware of what happened at the end of SoD
 ------------------------------------------------------------------------
-Adds a wanted poster and perhaps an arrest warrant to Irenicus' dungeon and conversations about them to make sure the PC is aware of the frame-up details.
-NOTE: If "The Cost Of One Girl's Soul" mod is installed, the item that starts that quest will be moved to the Genie in the Plane of Air to allow the PC time to learn about the murder and the significance of the dagger.
+NOTE: If "The Cost Of One Girl's Soul" mod is installed, the item that starts that quest will be moved to the Genie in the Plane of Air to allow the PC time to learn what happened and the significance of the item.
 
 ------------------------------------------------------------------------
-Quest: Find and return Skie's soul dagger to Entar Silvershield
+Quest: Resolve the PC's exile from Baldur's Gate
 ------------------------------------------------------------------------
 Requires Main Component
-Adds a mechanism to free Skie's soul and end the PC's exile from Baldur's Gate
-NOTE: If "The Cost Of One Girl's Soul" quest is installed, you will have the in-game choice of which method to use to help Skie.  Either one will stop the bounty hunter attacks and end the PC's exile.  If you throw away CoOGS's version of the dagger, you will cancel both quests.
+Adds consequences to being exiled from Baldur's Gate as well as a resolution. 
+NOTE: If "The Cost Of One Girl's Soul" quest is installed, you will have the in-game choice of which method to use to help Skie.  Either one will end the PC's exile.  If you install CoOGs and then throw away its version of the dagger, you will be left with the consequences and no way to resolve them.
 
 ------------------------------------------------------------------------
 PLANNED FUTURE ENHANCEMENTS
