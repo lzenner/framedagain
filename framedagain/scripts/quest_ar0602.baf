@@ -5,24 +5,9 @@
 
 IF
 	Global("#L_FramedQuest","GLOBAL",0)
-	Global("#L_FramedQuestSet","MYAREA",0)
 THEN
 	RESPONSE #100
 		SetGlobal("#L_FramedQuest","GLOBAL",1)
-		SetGlobal("#L_FramedQuestSet","MYAREA",1)
-		Continue()
-END
-
-// Lava allows for his dagger to be tossed
-// Which hoses our quest before it has a chance to start
-// C'est la vie
-IF
-	GlobalGT("#L_FramedQuest","GLOBAL",0)
-	GlobalGT("L#2SkieDaggerImoen","GLOBAL",49)
-THEN
-	RESPONSE #100
-		SetGlobal("#L_FramedQuest","GLOBAL",0)
-		EraseJournalEntry(@3100)
 		Continue()
 END
 
@@ -48,24 +33,3 @@ THEN
 		Continue()
 END
 
-// Quest was cancelled
-IF
-	Global("#L_FramedQuest","GLOBAL",0)
-	Global("#L_MapSet","MYAREA",1)
-	Global("#L_EET","GLOBAL",1)
-THEN
-	RESPONSE #100
-		StartCutSceneMode()
-		SetGlobal("#L_MapSet","MYAREA",0)
-		AddWorldmapAreaFlag("BG0100",EXPLORABLE)
-		AddWorldmapAreaFlag("BG0200",EXPLORABLE)
-		AddWorldmapAreaFlag("BG0300",EXPLORABLE)
-		AddWorldmapAreaFlag("BG0600",EXPLORABLE)
-		AddWorldmapAreaFlag("BG0700",EXPLORABLE)
-		AddWorldmapAreaFlag("BG0800",EXPLORABLE)
-		AddWorldmapAreaFlag("BG1100",EXPLORABLE)
-		AddWorldmapAreaFlag("BG1200",EXPLORABLE)
-		AddWorldmapAreaFlag("BG1300",EXPLORABLE)
-		EndCutSceneMode()
-		Continue()
-END
