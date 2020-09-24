@@ -1,0 +1,14 @@
+//////////////////////////////////////
+// Open the bridge to Baldur's Gate //
+// and do quest encounter           //
+// Parsed via framed_quest.tpa      //
+//////////////////////////////////////
+
+IF
+	GlobalGT("#L_FramedQuest","GLOBAL",0)
+	Global("#L_BridgeSet","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("#L_BridgeSet","MYAREA",1)
+		CloseDoor("DoorDraw")
+END

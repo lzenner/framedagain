@@ -12,6 +12,19 @@ DEFINE_ACTION_FUNCTION framed_quest BEGIN
 	// Add the global saying we're doing the quest
 	EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/quest_ar0602.baf~ USING ~%tra_loc%/%s/framed_quest.tra~
 
+	// Lower the drawbridge to Baldur's Gate
+	ACTION_IF GAME_IS ~eet~ BEGIN
+		LAF INSERT_SCRIPT_BLOCK
+			INT_VAR 
+				insert_above = 0
+				only_once = 1
+			STR_VAR 
+				script = BG0900
+				match = ~SetGlobal("K#Drawbridge","BG0900",1)~
+				insert = ~%mod_root%/scripts/quest_bg0900.baf~
+		END
+	END
+
 	// Define the journal entries to be used during the quest
 	ADD_JOURNAL @3100 USING ~%tra_loc%/%s/framed_quest.tra~
 
