@@ -32,6 +32,7 @@ PLANNED FUTURE ENHANCEMENTS
 * Add bounty hunter attacks until name cleared in Baldur's Gate
 * Add quest to hand in soul dagger and stop attacks from bounty hunters and clear name
 * Add comments about wanted posters to heads of temples, order of radiant heart and shadow thieves as well as some SoD NPCs such as Dorn
+* Move BG1 personal chest contents to a stronghold chest with compliments of dukes when name is cleared
 * Provide a lead-in for additonal quest mod dealing with Entar's revenge upon Irenicus 
 
 ------------------------------------------------------------------------
