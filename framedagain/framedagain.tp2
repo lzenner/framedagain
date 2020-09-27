@@ -20,9 +20,6 @@ ALWAYS
       LAF DO_RUN_ONCE END
 
       // Variables used to point to files
-      ACTION_IF GAME_IS ~eet~ BEGIN
-         INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
-      END
       INCLUDE ~%mod_root%/lib/#l_cmpvars.tpa~
 
       // Library functions used throughout
@@ -72,30 +69,14 @@ LANGUAGE ~American English~ ~american~
    ~weidu_external/workspace/framedagain/languages/american/cases.tra~
 
 
-///////////////////////////////////////
-// ADD NECESSARY ITEMS AND DIALOGUES //
-///////////////////////////////////////
-BEGIN @5   // MOD 0
-LABEL "#L-FRAMED2-MAIN"
-/////////////////////////////////////
-//
-// UNCOMMENT THIS LINE WHEN THE COMPONENT IS INSTALLED IN TRANSITIONS
-// IF DO IT NOW, GET WARNINGS
-//
-//REQUIRE_PREDICATE !(MOD_IS_INSTALLED ~transitions.tp2~ (ID_OF_LABEL ~transitions.tp2~ "#L-FRAMED2-MAIN")) @3
-//
-///////////////////////////////////////
-INCLUDE ~framedagain/components/main_framed.tpa~
-LAF main_framed END
-
-
 /////////////////////////////////////////////////
 // QUEST TO FIND AND RETURN SKIE'S SOUL DAGGER //
 /////////////////////////////////////////////////
-BEGIN @6    // MOD 10
-DESIGNATED 10
+BEGIN @3    // MOD 0
+LABEL "#L_FRAMED2-INFO"
 LABEL "#L-FRAMED2-QUEST"
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~framedagain.tp2~ 0) @4
-INCLUDE ~framedagain/components/framed_quest.tpa~
-LAF framed_quest END
+INCLUDE ~framedagain/components/framed_info.tpa~
+LAF framed_info END
+//INCLUDE ~framedagain/components/framed_quest.tpa~
+//LAF framed_quest END
 
