@@ -1,0 +1,24 @@
+////////////////////////////////////////////////////////
+// Compiles dialogue with Genie in the Plain of Air   //
+// no matter the outcome of the trial in SoD          //
+// when the quest is not loaded.                      //
+// This component will be taken out of this mod       //
+// and moved into Transitions when this mod is stable //
+////////////////////////////////////////////////////////
+
+DEFINE_ACTION_FUNCTION framed_info BEGIN
+//	ACTION_IF NOT (MOD_IS_INSTALLED ~transitions.tp2~ (ID_OF_LABEL "transitions.tp2" "#L-FRAMED2-INFO"))
+		// Move the dagger used in Cost of One Girl's Soul to the Genie in the Air Plane
+		EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/framed_info.baf~
+
+		// Imoen's dialogue file is different here
+		// Once EET End is installed, it won't make a difference
+		// But for testing without it, this is very helpful
+		ACTION_IF GAME_IS ~eet~ BEGIN
+			OUTER_SPRINT ~IMOEN_JOINED~ ~IMOEN2J~
+			EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/framed_eet.baf~
+		END
+		// Compile dialogue about the end of SoD
+		COMPILE EVALUATE_BUFFER ~%mod_root%/dialogues/framed_info.d~ USING ~%tra_loc%/%s/framed_info.tra~
+//	END
+END
