@@ -8,23 +8,16 @@ GENERAL
 ------------------------------------------------------------------------
 This mod requires BG2EE or EET.
 
-The Framed Again mod's main purpose is to make sure the PC is aware of the details of them leaving Baldur's Gate when they may have skipped the ending of SoD via features available in the Transitions mod when loaded with EET, though it doesn't require Transitions nor EET.  Optionally, it expands upon this to include consequences of those events and allows for a resolution.  It also provides a lead-in to another motivation for going to Spellhold. 
+The Framed Again mod's main purpose is to resolve the PC's exile from Baldur's Gate.
 
 ------------------------------------------------------------------------
 DESCRIPTION
 ------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
-Main Component: Make sure PC is aware of what happened at the end of SoD
-------------------------------------------------------------------------
-NOTE: If "The Cost Of One Girl's Soul" mod is installed, the item that starts that quest will be moved to the Genie in the Plane of Air to allow the PC time to learn what happened and the significance of the item.
-
-------------------------------------------------------------------------
 Quest: Resolve the PC's exile from Baldur's Gate
 ------------------------------------------------------------------------
-Requires Main Component
-Adds consequences to being exiled from Baldur's Gate as well as a resolution. 
-NOTE: If "The Cost Of One Girl's Soul" quest is installed, you will have the in-game choice of which method to use to help Skie.  Either one will end the PC's exile.  If you install CoOGs and then throw away its version of the dagger, you will be left with the consequences and no way to resolve them.
+NOTE: If "The Cost Of One Girl's Soul" mod is installed, the item that starts that quest will be moved to the Genie in the Plane of Air to allow the PC time to learn what happened and the significance of the item.  You will also have the in-game choice of which method to use to help Skie.  Either one will end the PC's exile.  If you install CoOGs and then throw away its version of the dagger, the exile will resolve itself in time anyway, but there will be consequences.
 
 ------------------------------------------------------------------------
 PLANNED FUTURE ENHANCEMENTS
@@ -43,8 +36,6 @@ There are no known compatability issues at this time
 ------------------------------------------------------------------------
 INSTALLATION
 ------------------------------------------------------------------------
-If you're going to install Transitions, do so before the Framed Again mod.
-
 Installation using Project Infinity (https://forums.beamdog.com/discussion/comment/1145416/#Comment_1145416) will ensure this and other mods are installed in the correct order.
 
 NOTE: If you've previously installed the mod, remove it before extracting a new version. To do this, uninstall all previously installed components and delete the mod folder and executables. 
@@ -75,7 +66,9 @@ CREDITS
 * K4thos: for EET - even though it's not required for this mod, I just really like EET
 * DavidW: for the lovely macros included in alter_script.tpa as well as guidance on encapsulation and immutability
 * Grammarsalad, subtledoctor, grodrigues, Mike1072, and jastey: for the ideas, guidance and help on the tool that provides proper and upper case player1 pronouns (cases.tpa)
+* Endarire: for prompting me to think about how to handle the loss of the dagger
 * Bubb and CamDawg - LOVE YOU FOREVER!!!  I mean it.  Forevah!
+* jastey: for everything you've done and continue to do. :)
 * The folks at The Gibberlings Three forums: for never failing to answer my many many questions
 
 ------------------------------------------------------------------------
