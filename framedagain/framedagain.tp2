@@ -75,8 +75,10 @@ LANGUAGE ~American English~ ~american~
 BEGIN @3    // MOD 0
 LABEL "#L_FRAMED2-INFO"
 LABEL "#L-FRAMED2-QUEST"
-INCLUDE ~framedagain/components/framed_info.tpa~
-LAF framed_info END
-//INCLUDE ~framedagain/components/framed_quest.tpa~
-//LAF framed_quest END
+//ACTION_IF NOT (MOD_IS_INSTALLED ~transitions.tp2~ (ID_OF_LABEL "transitions.tp2" "#L-FRAMED2-INFO"))
+   INCLUDE ~framedagain/components/framed_info.tpa~
+   LAF framed_info END
+//END
+INCLUDE ~framedagain/components/framed_quest.tpa~
+LAF framed_quest END
 
