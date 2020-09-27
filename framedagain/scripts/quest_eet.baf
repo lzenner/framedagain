@@ -4,14 +4,6 @@
 ////////////////////////////////////////////////////////////////
 
 IF
-	Global("#L_EET","GLOBAL",0)
-THEN
-	RESPONSE #100
-		SetGlobal("#L_EET","GLOBAL",1)
-		Continue()
-END
-
-IF
 	Global("#L_PosterStashed","GLOBAL",0)
 	Switch("bd_player_exiled","GLOBAL")
 THEN
@@ -34,16 +26,6 @@ THEN
 		SetGlobal("#L_PosterStashed","GLOBAL",1)
 		ActionOverride("JailkeepTable",CreateItem("#LScr01",1,0,0))
 		ActionOverride("JailkeepTable",CreateItem("#LScr03",1,0,0))
-		Continue()
-END
-
-IF
-	Contains("l#2sda1","Picture1")
-	Global("#L_DestroyedDagger","GLOBAL",0)
-THEN
-	RESPONSE #100
-		SetGlobal("#L_DestroyedDagger","GLOBAL",1)
-		ActionOverride("Picture1",DestroyItem("l#2sda1"))
 		Continue()
 END
 

@@ -1,9 +1,56 @@
 ///////////////////////////////////////////////////////
 // Journal entries for the quest to free Skie's soul //
 ///////////////////////////////////////////////////////
-@3100	= ~Skie's Soultaker Dagger
+@3000	= ~Skie's Soultaker Dagger
 I received, what appears to be, the dagger used to kill Skie Silvershield and trap her soul.  Now I need to decide what to do with it.~
+@3001	= ~Skie's Soultaker Dagger
+I threw away Skie's soultaker dagger and probably her only chance at being returned to the land of the living.~
 
-/////////////////////////////////////////////////////
-// Dialogues used in the quest to free Skie's soul //
-/////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+// Initial dialogue with the group about the wanted poster/arrest warrant //
+////////////////////////////////////////////////////////////////////////////
+@3100	= ~What is that?  Skie Silvershield is dead?~	// Skipped the trial portion of SoD
+@3125	= ~Did you see this, <CHARNAME>?  Listen!~  // Reads arrest warrant
+@3126	= ~And that's not all!~						// Reads bounty notice/wanted poster
+@3101	= ~It seems she's been murdered alright.  And for some reason I am wanted for it.~
+@3102	= ~Don't tell me you've been framed again!~
+@3103	= ~It would appear so.  This is becoming an annoyingly regular occurance.~
+@3104	= ~I am sorry to hear about Skie though.~
+@3105	= ~Yeah, me too.~
+@3106	= ~What is that?  Duke Entar put a price on your head?~	// BG2 or Exiled
+@3107	= ~What is that?  The Dukes of Baldur's Gate have put a price on your head?~ // Escaped from jail
+@3108	= ~A rather high price, actually. This is becoming an annoyingly regular occurance.~
+@3109	= ~At least this time you know who wants you dead, and why.~
+@3110	= ~Oddly enough, that doesn't feel like much of an improvement.~
+@3111	= ~Duke Entar must be about out of his mind, losing both of his children.~
+@3112	= ~Yeah, I'd feel a lot sorrier for him if he hadn't put a 10,000 gold reward on my head.~
+@3113	= ~What's this about a soultaker dagger?~	// Skipped the trial portion of SoD
+@3114	= ~Your guess is as good as mine.~
+@3124	= ~Boo wonders why they think you did it.~
+@3115	= ~I wonder why they think you did it.~
+@3116	= ~I don't know.  Dopplegangers maybe?~
+@3117	= ~Hmm, could be.  But let's worry about this once we're out of here.~
+@3118	= ~I see they still haven't found that soultaker dagger.~
+@3119	= ~What does he think?  The dagger sprouted legs and walked out on it's own?  It wasn't to be found in the entire area.~
+@3120	= ~What do they think?  The dagger sprouted legs and walked out on it's own?  It wasn't to be found in the entire area.~
+@3121	= ~Who can say what goes on inside his head.  But let's worry about this once we're out of here.~
+@3122	= ~Who can say what they think.  But let's worry about this once we're out of here.~
+@3123	= ~Right!  First things first.~
+
+////////////
+// #3024-26 up in initial conversation
+////////////
+
+///////////////////////////////////////////////////////////////////////////
+// Conversation with the Genie in the Plane of Air about the soul dagger //
+///////////////////////////////////////////////////////////////////////////
+@3127	= ~To sweeten the deal, I will give you the dagger the master used to frame you.  I will have no use for it.~
+@3128	= ~Are you saying this mad mage is the one who murdered Skie?~ 		//Skipped trial
+@3129	= ~Indeed, so he could separate you from those who protected you.~
+@3130	= ~Is her soul trapped in this dagger?  Can we free her?~
+@3131	= ~I believe so on both accounts.~
+@3132	= ~I am protecting the dagger for the master.  If you free me, I will you give it and your weapon.~
+@3133	= ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~
+@3134	= ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~
+
+

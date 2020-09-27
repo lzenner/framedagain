@@ -11,25 +11,3 @@ THEN
 		Continue()
 END
 
-// Until the quest is solved, don't allow jumping into Baldur's Gate
-IF
-	Global("#L_FramedQuest","GLOBAL",2)
-	Global("#L_MapSet","MYAREA",0)
-	Global("#L_EET","GLOBAL",1)
-THEN
-	RESPONSE #100
-		StartCutSceneMode()
-		SetGlobal("#L_MapSet","MYAREA",1)
-		RemoveWorldmapAreaFlag("BG0100",EXPLORABLE)
-		RemoveWorldmapAreaFlag("BG0200",EXPLORABLE)
-		RemoveWorldmapAreaFlag("BG0300",EXPLORABLE)
-		RemoveWorldmapAreaFlag("BG0600",EXPLORABLE)
-		RemoveWorldmapAreaFlag("BG0700",EXPLORABLE)
-		RemoveWorldmapAreaFlag("BG0800",EXPLORABLE)
-		RemoveWorldmapAreaFlag("BG1100",EXPLORABLE)
-		RemoveWorldmapAreaFlag("BG1200",EXPLORABLE)
-		RemoveWorldmapAreaFlag("BG1300",EXPLORABLE)
-		EndCutSceneMode()
-		Continue()
-END
-
