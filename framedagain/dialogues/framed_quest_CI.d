@@ -1,7 +1,7 @@
-//////////////////////////////////////////////////////////
-// Dialogue required for the quest to free Skie         //
-// Compiled via framed_quest.tpa using framed_quest.tra //
-//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
+// Dialogue inside Chateau Irenicus required for the quest to free Skie //
+// Compiled via framed_quest.tpa using framed_quest.tra                 //
+//////////////////////////////////////////////////////////////////////////
 
 APPEND %IMOEN_JOINED%
 	// Left before Skie dead via item
@@ -377,40 +377,6 @@ APPEND IDJINNI
 	IF ~~ BEGIN DO_JOURNAL
 		SAY @3131 /* ~I believe so on both accounts.~ */
 		= @3132 /* ~I am protecting the dagger for the master.  If you free me, I will you give it and your weapon.~ */
-  		IF ~~ THEN DO ~SetGlobal("HelpDjinni","GLOBAL",1)~ UNSOLVED_JOURNAL #34099 EXIT
-	END
-
-	IF ~~ BEGIN NQ_NT_NJ
-		SAY @3133 /* ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~ */
-		++ @3128 /* ~Are you saying this mad mage is the one who murdered Skie?~ */ + NQ_NT_NJ_2
-	END
-
-	IF ~~ BEGIN NQ_NT_NJ_2
-		SAY @3129 /* ~Indeed, so he could separate you from those who protected you. */
-		= @3134 /* ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~ */
-		IF ~~ THEN EXIT
-	END
-
-	IF ~~ BEGIN NQ_T_NJ
-		SAY @3133 /* ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~ */
-		= @3134 /* ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~ */
-		IF ~~ THEN EXIT
-	END
-
-	IF ~~ BEGIN NQ_NT_J
-		SAY @3133 /* ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~ */
-		++ @3128 /* ~Are you saying this mad mage is the one who murdered Skie?~ */ + NQ_NT_J_2
-	END
-
-	IF ~~ BEGIN NQ_NT_J_2
-		SAY @3129 /* ~Indeed, so he could separate you from those who protected you. */
-		= @3134 /* ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~ */
-  		IF ~~ THEN DO ~SetGlobal("HelpDjinni","GLOBAL",1)~ UNSOLVED_JOURNAL #34099 EXIT
-	END
-
-	IF ~~ BEGIN NQ_T_J
-		SAY @3133 /* ~It is unfortunate that I no longer am the keeper of the dagger the master used to frame you, or I would be able to offer it to you to sweeten the deal.~ */
-		= @3134 /* ~But unfortunately, I suspect it has been destroyed since he no longer had any use for it.~ */
   		IF ~~ THEN DO ~SetGlobal("HelpDjinni","GLOBAL",1)~ UNSOLVED_JOURNAL #34099 EXIT
 	END
 END

@@ -3,28 +3,9 @@
 ///////////////////////////////////////////////////////
 
 DEFINE_ACTION_FUNCTION framed_quest BEGIN
-	// Put the required scroll(s) into the game
-	ACTION_IF GAME_IS ~BG2EE~ BEGIN
-		OUTER_SET SCROLL_READ1 = 0
-		OUTER_SET SCROLL_READ2 = 0
-		OUTER_SET SCROLL_READ3 = RESOLVE_STR_REF (@1004)
-		// We have no idea if they even played SoD
-		// Just put in the wanted poster from Entar
-		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr03.itm~
-    		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
-    		SAY DESC  @1004 /* Wanted dead or alive by Entar */
 
-		// Add the poster to Chateau Irenicus
-		LAF INSERT_SCRIPT_BLOCK
-			INT_VAR 
-				insert_above = 1
-				only_once = 1
-			STR_VAR 
-				script = AR0602
-				match = ~Global("BG1Pantaloons","GLOBAL",0)~
-				insert = ~%mod_root%/scripts/quest_bg2.baf~
-		END
-	END ELSE BEGIN
+	// Put the required scroll(s) into the game
+	ACTION_IF GAME_IS ~eet~ BEGIN
 		// Will need to put in all variations of the posters/warrants
 		// Which one(s) will actually be found in the dungeon will be dependent upon 
 		// the value of bd_player_exiled at the time the PC is transferred to BG2
@@ -41,32 +22,27 @@ DEFINE_ACTION_FUNCTION framed_quest BEGIN
     		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
     		SAY DESC  @1004 /* Wanted dead or alive by Entar */
 
-		// Add the poster(s) to Chateau Irenicus
-		LAF INSERT_SCRIPT_BLOCK
-			INT_VAR 
-				insert_above = 1
-				only_once = 1
-			STR_VAR 
-				script = AR0602
-				match = ~Global("BG1Pantaloons","GLOBAL",0)~
-				insert = ~%mod_root%/scripts/quest_eet.baf~
-		END
+	END ELSE BEGIN	// Stand-alone BG2EE
 
-		// Imoen's dialogue file is different here
-		// Once EET End is installed, it won't make a difference
-		// But for testing without it, this is very helpful
-		OUTER_SPRINT ~IMOEN_JOINED~ ~IMOEN2J~
-	END
+		OUTER_SPRINT ~GLOBAL_IS_EET~ ~~
+		OUTER_SET SCROLL_READ1 = 0
+		OUTER_SET SCROLL_READ2 = 0
+		OUTER_SET SCROLL_READ3 = RESOLVE_STR_REF (@1004)
+		// We have no idea if they even played SoD
+		// Just put in the wanted poster from Entar
+		COPY ~%mod_root%/objects/#LScr01.itm~ ~override/#LScr03.itm~
+    		SAY NAME2 @1002	/* ~<CHARNAME>'s Wanted Poster~ */
+    		SAY DESC  @1004 /* Wanted dead or alive by Entar */
+    END
+
+	INCLUDE ~framedagain/components/framed_quest_CI.tpa~
+	LAF framed_quest_CI END
 
 	// Add the soultaker dagger to the game
 	COPY ~%mod_root%/objects/#LDGSoul.BAM~ ~override~
 	COPY ~%mod_root%/objects/#LDGSoul.ITM~ ~override~
 		SAY NAME2 @1005 /* ~Skie's Soultaker Dagger~ */
 		SAY DESC  @1006
-
-	// Add the global saying we're doing the quest
-	EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/quest_ar0602.baf~
-	EXTEND_BOTTOM ~AR0601.BCS~ ~%mod_root%/scripts/quest_ar0601.baf~ USING ~%tra_loc%/%s/framed_quest.tra~
 
 	// Lower the drawbridge to Baldur's Gate
 	ACTION_IF GAME_IS ~eet~ BEGIN
@@ -83,12 +59,4 @@ DEFINE_ACTION_FUNCTION framed_quest BEGIN
 
 	// Define the journal entries to be used during the quest
 	ADD_JOURNAL @3000 @3001 USING ~%tra_loc%/%s/framed_quest.tra~
-
-	// Compile the dialogues
-	COMPILE EVALUATE_BUFFER ~%mod_root%/dialogues/framed_quest.d~ USING ~%tra_loc%/%s/framed_quest.tra~
-
-	// Kick off dialogue about the posters in the dungeon depending upon who's in the group
-	EXTEND_TOP ~IMOEN.BCS~ ~%mod_root%/scripts/quest_imoen.baf~
-	EXTEND_TOP ~JAHEIRA.BCS~ ~%mod_root%/scripts/quest_jaheira.baf~
-	EXTEND_TOP ~MINSC.BCS~ ~%mod_root%/scripts/quest_minsc.baf~
 END

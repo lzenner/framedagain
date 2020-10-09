@@ -29,3 +29,12 @@ THEN
 		Continue()
 END
 
+////////////////////////////////////////////////////
+// Set the global needed to identify we're in EET //
+////////////////////////////////////////////////////
+IF
+	Global("#L_EET","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("#L_EET","GLOBAL",1)
+END

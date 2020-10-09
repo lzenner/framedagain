@@ -1,0 +1,55 @@
+/////////////////////////////////////////////////////////////////////
+// Chateau Irenicus portion - keep separate mostly Imoen variables //
+/////////////////////////////////////////////////////////////////////
+
+DEFINE_ACTION_FUNCTION framed_quest_CI BEGIN
+
+	ACTION_IF GAME_IS ~eet~ BEGIN
+		// Add the poster(s) to Chateau Irenicus
+		LAF INSERT_SCRIPT_BLOCK
+			INT_VAR 
+				insert_above = 1
+				only_once = 1
+			STR_VAR 
+				script = AR0602
+				match = ~Global("BG1Pantaloons","GLOBAL",0)~
+				insert = ~%mod_root%/scripts/quest_eet.baf~
+		END
+
+		// Imoen's dialogue file is different here
+		// Once EET End is installed, it won't make a difference
+		// But for testing without it, this is very helpful
+		OUTER_SPRINT ~IMOEN_JOINED~ ~IMOEN2J~
+
+	END ELSE BEGIN	// Stand-alone BG2EE
+
+		// Add the poster to Chateau Irenicus
+		LAF INSERT_SCRIPT_BLOCK
+			INT_VAR 
+				insert_above = 1
+				only_once = 1
+			STR_VAR 
+				script = AR0602
+				match = ~Global("BG1Pantaloons","GLOBAL",0)~
+				insert = ~%mod_root%/scripts/quest_bg2.baf~
+		END
+	END
+
+	// Move the dagger used in Cost of One Girl's Soul to the Genie in the Air Plane
+	// Already in Transitions so only add if it's not loaded
+	ACTION_IF NOT (MOD_IS_INSTALLED ~transitions.tp2~ 0) BEGIN
+		EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/move_dagger.baf~
+	END
+
+	// Add the global saying we're doing the quest
+	EXTEND_TOP ~AR0602.BCS~ ~%mod_root%/scripts/quest_ar0602.baf~
+	EXTEND_BOTTOM ~AR0601.BCS~ ~%mod_root%/scripts/quest_ar0601.baf~ USING ~%tra_loc%/%s/framed_quest.tra~
+
+	// Kick off dialogue about the posters in the dungeon depending upon who's in the group
+	EXTEND_TOP ~IMOEN.BCS~ ~%mod_root%/scripts/quest_imoen.baf~
+	EXTEND_TOP ~JAHEIRA.BCS~ ~%mod_root%/scripts/quest_jaheira.baf~
+	EXTEND_TOP ~MINSC.BCS~ ~%mod_root%/scripts/quest_minsc.baf~
+
+	// Compile the dialogues for Chateau Irenicus
+	COMPILE EVALUATE_BUFFER ~%mod_root%/dialogues/framed_quest_CI.d~ USING ~%tra_loc%/%s/framed_quest.tra~
+END
